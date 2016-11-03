@@ -15,19 +15,19 @@ import java.util.Scanner;
  */
 public class TimestampTransfer {
 	@SuppressWarnings("resource")
-	public static void main(String[] args){
-		Scanner scanner = new Scanner(System.in);
-		SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		while (scanner.hasNext()){
+	public static void main(String[] args){//标准输入
+		Scanner scanner = new Scanner(System.in);//更改日期格式
+		SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//输入内容
+		SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");//输出内容
+		while (scanner.hasNext()){//循环执行
 			String line = scanner.nextLine();
-			Date lineDate = null;
+			Date lineDate = null;//获得日期数据
 			long lineTimestamp;
 			try {
-				lineDate = inputFormat.parse(line);
+				lineDate = inputFormat.parse(line);//传入输入内容
 				lineTimestamp = lineDate.getTime();
-				System.out.println(outputFormat.format(lineDate) + " to " + lineTimestamp);
-			} catch (ParseException e) {
+				System.out.println(outputFormat.format(lineDate) + " to " + lineTimestamp);//输出结果
+			} catch (ParseException e) {//捕获异常
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
